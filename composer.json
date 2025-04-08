@@ -1,0 +1,13 @@
+{
+    "name": "gr431_seade/practic-php",
+    "description": "practic php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergeev Artyom"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
