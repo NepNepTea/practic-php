@@ -6,6 +6,7 @@ use Model\Post;
 use Src\View;
 use Src\Request;
 use Model\User;
+use Model\Discipline;
 use Src\Auth\Auth;
 class Site
 {
@@ -46,5 +47,11 @@ class Site
     {
         Auth::logout();
         app()->route->redirect('/hello');
+    }
+
+    public function disciplines(): string
+    {
+        $disciplines = Discipline::all();
+        return (new View())->render('site.discipline', ['disciplines' => $disciplines]);
     }
 }
