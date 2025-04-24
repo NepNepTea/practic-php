@@ -8,6 +8,7 @@ use Src\Request;
 use Model\User;
 use Model\Discipline;
 use Model\Group;
+use Model\Student;
 use Src\Auth\Auth;
 class Site
 {
@@ -65,5 +66,11 @@ class Site
     {
         $groups = Group::all();
         return (new View())->render('site.group', ['groups' => $groups]);
+    }
+
+    public function students(): string
+    {
+        $students = Student::all();
+        return (new View())->render('site.student', ['students' => $students]);
     }
 }

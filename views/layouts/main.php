@@ -13,6 +13,7 @@
         <a href="<?= app()->route->getUrl('/disciplines') ?>">Дисциплины</a>
         <a href="<?= app()->route->getUrl('/users') ?>">Сотрудники</a>
         <a href="<?= app()->route->getUrl('/groups') ?>">Группы</a>
+        <a href="<?= app()->route->getUrl('/students') ?>">Студенты</a>
         <?php
         if (!app()->auth::check()):
             ?>
