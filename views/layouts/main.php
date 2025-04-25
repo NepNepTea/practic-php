@@ -6,10 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Деканат</title>
+    <script defer src="./assets/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.css">
 </head>
 <body>
-<header>
-    <nav>
+<header class="mb-3">
+    <nav class="d-flex p-2 justify-content-evenly bg-info-subtle border border-info">
         <a href="<?= app()->route->getUrl('/disciplines') ?>">Дисциплины</a>
         <a href="<?= app()->route->getUrl('/users') ?>">Сотрудники</a>
         <a href="<?= app()->route->getUrl('/groups') ?>">Группы</a>
@@ -28,7 +30,7 @@
         ?>
     </nav>
 </header>
-<main>
+<main class="d-flex align-items-center flex-column">
     <?= $content ?? '' ?>
 </main>
 

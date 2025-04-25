@@ -73,4 +73,22 @@ class Site
         $students = Student::all();
         return (new View())->render('site.student', ['students' => $students]);
     }
+
+    public function add_user(): string
+    {
+        return (new View())->render('site.add_user');
+    }
+    public function add_discipline(): string
+    {
+        return (new View())->render('site.add_discipline');
+    }
+    public function add_group(): string
+    {
+        return (new View())->render('site.add_group');
+    }
+
+    public function add_student(): string
+    {
+        return (new View())->render('site.add_student');
+    }
 }
