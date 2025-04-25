@@ -59,7 +59,7 @@ class Site
 
     public function users(): string
     {
-        $users = User::all();
+        $users = User::where('role', 'сотрудник')->get();
         return (new View())->render('site.user', ['users' => $users]);
     }
     public function groups(): string
