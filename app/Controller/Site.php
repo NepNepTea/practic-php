@@ -64,8 +64,9 @@ class Site
     }
     public function groups(): string
     {
+        $disciplines = Discipline::all();
         $groups = Group::all();
-        return (new View())->render('site.group', ['groups' => $groups]);
+        return (new View())->render('site.group', ['groups' => $groups, 'disciplines' => $disciplines]);
     }
 
     public function students(): string
