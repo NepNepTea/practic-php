@@ -78,8 +78,11 @@ class Site
     {
         return (new View())->render('site.add_user');
     }
-    public function add_discipline(): string
+    public function add_discipline(Request $request): string
     {
+        if ($request->method === 'POST' && Discipline::create($request->all())) {
+        app()->route->redirect('/disciplines');
+        }
         return (new View())->render('site.add_discipline');
     }
     public function add_group(): string
