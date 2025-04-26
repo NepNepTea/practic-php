@@ -20,13 +20,13 @@ class Site
 
     public function hello(): string
     {
-        return new View('site.hello', ['message' => 'hello working']);
+        return new View('site.hello', ['message' => 'Здравствуйте']);
     }
 
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/go');
+            app()->route->redirect('/disciplines');
         }
         return new View('site.signup');
     }
@@ -39,7 +39,7 @@ class Site
         }
         //Если удалось аутентифицировать пользователя, то редирект
         if (Auth::attempt($request->all())) {
-            app()->route->redirect('/hello');
+            app()->route->redirect('/disciplines');
         }
         //Если аутентификация не удалась, то сообщение об ошибке
         return new View('site.login', ['message' => 'Неправильные логин или пароль']);
@@ -74,10 +74,6 @@ class Site
         return (new View())->render('site.student', ['students' => $students]);
     }
 
-    public function add_user(): string
-    {
-        return (new View())->render('site.add_user');
-    }
     public function add_discipline(Request $request): string
     {
         if ($request->method === 'POST' && Discipline::create($request->all())) {
@@ -94,8 +90,12 @@ class Site
         return (new View())->render('site.add_group', ['disciplines' => $disciplines]);
     }
 
-    public function add_student(): string
+    public function add_student(Request $request): string
     {
-        return (new View())->render('site.add_student');
+        $groups = Group::all();
+        if ($request->method === 'POST' && Student::create($request->all())) {
+            app()->route->redirect('/students');
+        }
+        return (new View())->render('site.add_student', ['groups' => $groups]);
     }
 }
