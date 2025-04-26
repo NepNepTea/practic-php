@@ -85,9 +85,13 @@ class Site
         }
         return (new View())->render('site.add_discipline');
     }
-    public function add_group(): string
+    public function add_group(Request $request): string
     {
-        return (new View())->render('site.add_group');
+        $disciplines = Discipline::all();
+        if ($request->method === 'POST' && Group::create($request->all())) {
+            app()->route->redirect('/groups');
+        }
+        return (new View())->render('site.add_group', ['disciplines' => $disciplines]);
     }
 
     public function add_student(): string
