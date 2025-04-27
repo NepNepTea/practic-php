@@ -100,4 +100,10 @@ class Site
         }
         return (new View())->render('site.add_student', ['groups' => $groups]);
     }
+
+    public function student_info(Request $request): string
+    {
+        $students = Student::where('id', $request->id)->get();
+        return (new View())->render('site.student_info', ['students' => $students]);
+    }
 }
