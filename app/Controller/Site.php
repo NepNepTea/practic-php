@@ -9,6 +9,7 @@ use Model\User;
 use Model\Discipline;
 use Model\Group;
 use Model\Student;
+use Model\Speciality;
 use Src\Auth\Auth;
 class Site
 {
@@ -64,9 +65,9 @@ class Site
     }
     public function groups(): string
     {
-        $disciplines = Discipline::all();
+        $specialities = Speciality::all();
         $groups = Group::all();
-        return (new View())->render('site.group', ['groups' => $groups, 'disciplines' => $disciplines]);
+        return (new View())->render('site.group', ['groups' => $groups, 'specialities' => $specialities]);
     }
 
     public function students(): string
@@ -84,11 +85,11 @@ class Site
     }
     public function add_group(Request $request): string
     {
-        $disciplines = Discipline::all();
+        $specialities = Speciality::all();
         if ($request->method === 'POST' && Group::create($request->all())) {
             app()->route->redirect('/groups');
         }
-        return (new View())->render('site.add_group', ['disciplines' => $disciplines]);
+        return (new View())->render('site.add_group', ['specialities' => $specialities]);
     }
 
     public function add_student(Request $request): string

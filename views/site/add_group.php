@@ -4,8 +4,8 @@
     <p>Специальность</p>
     <select class="w-25" name="speciality">
         <?php
-        foreach ($disciplines as $discipline) {
-            echo '<option value=" ' . $discipline->id . ' "> ' . $discipline->name . ' </option>';
+        foreach ($specialities as $speciality) {
+            echo '<option value=" ' . $speciality->id . ' "> ' . $speciality->name . ' </option>';
         }
         ?>
     </select>
