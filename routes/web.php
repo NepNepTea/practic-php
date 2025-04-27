@@ -16,3 +16,4 @@ Route::add(['GET', 'POST'], '/add_discipline', [Controller\Site::class, 'add_dis
 Route::add(['GET', 'POST'], '/add_group', [Controller\Site::class, 'add_group']);
 Route::add(['GET', 'POST'], '/add_student', [Controller\Site::class, 'add_student']);
 Route::add('GET', '/student_info/', [Controller\Site::class, 'student_info']);
+Route::add('GET', '/user_info/', [Controller\Site::class, 'user_info']);

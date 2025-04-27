@@ -106,4 +106,10 @@ class Site
         $students = Student::where('id', $request->id)->get();
         return (new View())->render('site.student_info', ['students' => $students]);
     }
+
+    public function user_info(Request $request): string
+    {
+        $users = User::where('id', $request->id)->get();
+        return (new View())->render('site.user_info', ['users' => $users]);
+    }
 }
