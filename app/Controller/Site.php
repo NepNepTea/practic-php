@@ -8,6 +8,7 @@ use Src\Request;
 use Model\User;
 use Model\Discipline;
 use Model\Group;
+use Model\Grade;
 use Model\Student;
 use Model\Speciality;
 use Src\Auth\Auth;
@@ -116,5 +117,14 @@ class Site
     {
         $students = Student::where('group', $request->id)->get();
         return (new View())->render('site.choose_student', ['students' => $students]);
+    }
+    public function choose_grade(Request $request): string
+    {
+        $disciplines = Discipline::all();
+        $student = $request->student_id;
+        if ($request->method === 'POST' && Grade::create($request->all())) {
+        app()->route->redirect('/groups');
+        }
+        return (new View())->render('site.choose_grade', ['student' => $student, 'disciplines' => $disciplines]);
     }
 }

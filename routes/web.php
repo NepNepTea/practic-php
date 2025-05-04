@@ -18,3 +18,4 @@ Route::add(['GET', 'POST'], '/add_student', [Controller\Site::class, 'add_studen
 Route::add('GET', '/student_info/', [Controller\Site::class, 'student_info']);
 Route::add('GET', '/user_info/', [Controller\Site::class, 'user_info']);
 Route::add('GET', '/choose_student/', [Controller\Site::class, 'choose_student']);
+Route::add(['GET', 'POST'], '/choose_grade/', [Controller\Site::class, 'choose_grade']);
