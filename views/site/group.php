@@ -4,7 +4,9 @@
     <div class="p-2 d-flex justify-content-evenly align-items-center"><p class="p-2 w-25">Название</p><p class="p-2 w-25">ID Специальности</p></div>
     <?php
     foreach ($groups as $group) {
-        echo '<li class="border border-primary p-2"><div class="d-flex justify-content-evenly align-items-center"><div class="p-2 w-25"> ' . $group->name . ' </div><div class="p-2 w-25"> ' . $group->speciality . '</div></div></li>';
+        echo '<li class="border border-primary p-2"><div class="d-flex justify-content-evenly align-items-center">
+        <div class="p-2 w-25"> ' . $group->name . ' </div><div class="p-2 w-25"> ' . $group->speciality . '</div></div>
+        <a href="' . app()->route->getUrl('/choose_student') . '/?id=' . $group->id . '">Выставить</a></li>';
     }
     ?>
 </ol>

@@ -112,4 +112,9 @@ class Site
         $users = User::where('id', $request->id)->get();
         return (new View())->render('site.user_info', ['users' => $users]);
     }
+    public function choose_student(Request $request): string
+    {
+        $students = Student::where('group', $request->id)->get();
+        return (new View())->render('site.choose_student', ['students' => $students]);
+    }
 }
