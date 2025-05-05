@@ -127,4 +127,9 @@ class Site
         }
         return (new View())->render('site.choose_grade', ['student' => $student, 'disciplines' => $disciplines]);
     }
+    public function student_grades(Request $request): string
+    {
+        $grades = Grade::where('student', $request->id)->get();
+        return (new View())->render('site.student_grades', ['grades' => $grades]);
+    }
 }
