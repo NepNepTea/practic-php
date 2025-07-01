@@ -1,5 +1,4 @@
 <h1>Успеваемость</h1>
-<a class="align-self-end me-5 btn btn-primary" href="<?= app()->route->getUrl('/add_discipline') ?>">Добавить дисциплину</a>
 <ol class="w-75">
     <div class="p-2 d-flex justify-content-evenly align-items-center"><p class="p-2 w-25">Дисциплина</p><p class="p-2 w-25">Оценка</p><p class="p-2 w-25">Количество часов</p><p class="p-2 w-25">Метод контроля</p><p class="p-2 w-25">Семестр</p></div>
     <?php
